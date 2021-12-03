@@ -14,10 +14,20 @@ exports.get = async (req, res, next) => {
 
 exports.listByCategory = async (req, res, next) => {
     try {
+        let orderKey = (req.body.sort && Object.keys(req.body.sort) && Object.keys(req.body.sort)[0]) ?
+            Object.keys(req.body.sort)[0] :
+            'sales'
+        let orderValue = (req.body.sort && Object.values(req.body.sort) && Object.values(req.body.sort)[0]) ?
+            Object.values(req.body.sort)[0].toUpperCase() :
+            'DESC'
         let products = await Product.findAll({
-            include: {all: true}, where: {
+            include: {all: true},
+            where: {
                 categoryId: req.params.categoryId
-            }
+            },
+            order: [
+                [orderKey, orderValue],
+            ],
         })
         res.status(httpStatus.OK);
         res.json(products);
