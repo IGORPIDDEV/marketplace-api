@@ -1,6 +1,7 @@
 const express = require('express');
-const controller = require('../controllers').category;
+const controller = require('../controllers').category
 const router = express.Router();
+// const auth = require('../middleware/auth');
 
 router.route('/')
     .post(controller.create)
