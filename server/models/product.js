@@ -34,6 +34,11 @@ module.exports = (sequelize, DataTypes) => {
             as: 'status',
             onDelete: 'CASCADE'
         });
+        Product.hasOne(models.Favorite, {
+            foreignKey: 'productId',
+            as: 'favorite',
+            onDelete: 'CASCADE'
+        });
     };
 
     Product.get = async (slug) => {

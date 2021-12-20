@@ -16,4 +16,7 @@ router.route('/topsales/')
 router.route('/:product')
     .get(controller.get);
 
+router.post('/addtofavorite', controller.addToFavorite)
+router.post('/removefromfavorite', controller.removeFromFavorite)
+
 module.exports = router;
