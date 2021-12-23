@@ -16,7 +16,12 @@ router.route('/topsales/')
 router.route('/:product')
     .get(controller.get);
 
+
+// favorites
 router.post('/addtofavorite', controller.addToFavorite)
 router.post('/removefromfavorite', controller.removeFromFavorite)
+router.post('/getfavorites', controller.getFavorites)
+
+router.post('/checkavailability', controller.checkAvailability)
 
 module.exports = router;

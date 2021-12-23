@@ -90,6 +90,43 @@ exports.create = async (req, res, next) => {
     }
 };
 
+exports.getFavorites = async (req, res, next) => {
+    try {
+        let orderKey = (req.body.sort && Object.keys(req.body.sort) && Object.keys(req.body.sort)[0]) ?
+            Object.keys(req.body.sort)[0] :
+            'sales';
+        let orderValue = (req.body.sort && Object.values(req.body.sort) && Object.values(req.body.sort)[0]) ?
+            Object.values(req.body.sort)[0].toUpperCase() :
+            'DESC';
+        let products = await Product.findAll({
+            order: [
+                [orderKey, orderValue],
+            ],
+            include: [{
+                model: Category,
+                as: 'category'
+            }, {
+                model: Unit,
+                as: 'unit'
+            }, {
+                model: Status,
+                as: 'status'
+            }, {
+                model: Favorite,
+                as: 'favorite',
+                where: {
+                    userId: req.body.userId
+                },
+                required: true
+            }],
+        });
+        res.status(httpStatus.OK);
+        res.json(products);
+    } catch (error) {
+        next(error);
+    }
+}
+
 exports.addToFavorite = async (req, res, next) => {
     try {
         let favorite = await Favorite.create(req.body);
@@ -109,6 +146,21 @@ exports.removeFromFavorite = async (req, res, next) => {
         })
         res.status(httpStatus.OK);
         res.json({})
+    } catch (error) {
+        next(error);
+    }
+}
+
+exports.checkAvailability = async (req, res, next) => {
+    try {
+        let product = await Product.findByPk(req.body.productId)
+        if (product.quantity > 0) {
+            res.status(httpStatus.OK);
+            res.json()
+        } else {
+            res.status(httpStatus.SERVICE_UNAVAILABLE);
+            res.json()
+        }
     } catch (error) {
         next(error);
     }
