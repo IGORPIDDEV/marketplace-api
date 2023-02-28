@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('Products', [{
         id: 1,
         name: 'iPhone 12 Pro Max',
-        desc: 'Phone 12 Pro Max 512Gb',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image: 'iphone12promax.jpg',
         slug: 'iphone-12-pro-max',
         price: '1000.00',
@@ -16,17 +16,17 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         categoryId: 1,
-        statusId: 1,
+        statusId: 3,
         unitId: 1
     }, {
         id: 2,
-        name: 'Samsung Galaxy Note 10',
-        desc: 'Samsung Galaxy Note 10 128Gb',
+        name: 'Samsung Galaxy N 10',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image: 'galaxynote10.jpg',
         slug: 'samsung-galaxy-note-10-128-gb',
         price: '800.00',
         quantity: '49',
-        brandId: 2,
+        brandId: 3,
         sales: 6,
         views: 60,
         createdAt: new Date(),
@@ -37,12 +37,12 @@ module.exports = {
     }, {
         id: 3,
         name: 'Asus Vivobook 15',
-        desc: 'Asus Vivobook 15 K513E',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image: 'asusvivobook15.jpeg',
         slug: 'asus-vivobook-15-k513e',
         price: '950.00',
         quantity: '15',
-        brandId: 4,
+        brandId: 6,
         sales: 2,
         views: 33,
         createdAt: new Date(),
@@ -53,12 +53,12 @@ module.exports = {
     }, {
         id: 4,
         name: 'Lenovo Thinkpad D35',
-        desc: 'Lenovo Thinkpad D35',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image: 'lenovothinkpad.jpeg',
         slug: 'lenovo-thinkpad-d35',
         price: '1050.00',
         quantity: '12',
-        brandId: 3,
+        brandId: 5,
         sales: 5,
         views: 149,
         createdAt: new Date(),
@@ -69,7 +69,7 @@ module.exports = {
     }, {
         id: 5,
         name: 'iPhone 11 Pro Max',
-        desc: 'Phone 11 Pro Max 512Gb',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image: 'iphone11promax.jpg',
         slug: 'iphone-11-pro-max',
         price: '999.00',
@@ -80,17 +80,17 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         categoryId: 1,
-        statusId: 1,
+        statusId: 2,
         unitId: 1
     }, {
         id: 6,
-        name: 'Samsung Galaxy M52 6/128Gb',
-        desc: 'Samsung Galaxy M52 6/128Gb',
+        name: 'Samsung Galaxy M52',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         image: 'samsunggalaxym52.jpg',
         slug: 'samsung-galaxy-m52',
         price: '500.00',
         quantity: '39',
-        brandId: 2,
+        brandId: 3,
         sales: 1,
         views: 41,
         createdAt: new Date(),
@@ -98,12 +98,43 @@ module.exports = {
         categoryId: 1,
         statusId: 1,
         unitId: 1
+    }, {
+        id: 7,
+        name: 'Acer Aspire 7',
+        desc: 'The Acer Aspire 7 is powered by an Intel® Core™ i5-1240P processor, NVIDIA® GeForce® GTX 1650 4GB GDDR6 [supporting NVIDIA® CUDA® Cores] graphics, 8GB 3200Mhz DDR4 RAM (8GB DDR4 3200Mhz SoDIMM and a 512GB, PCIe Gen3, 8Gb/s, NVMe (1 additional PCIe NVMe Slot) SSD. It also has a 15.6" Full HD 1920 x 1080, 144Hz display and weighs 2.1kg.',
+        image: 'aceraspire.jpg',
+        slug: 'acer-aspire-7',
+        price: '3000.00',
+        quantity: '20',
+        brandId: 3,
+        sales: 2,
+        views: 21,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        categoryId: 2,
+        statusId: 1,
+        unitId: 1
+    }, {
+        id: 8,
+        name: 'Acer Extensa 15',
+        desc: 'The Acer Extensa combines productivity and entertainment technology in a highly portable package. It provides up to 7 hours1 of battery life, letting you stay unplugged and mobile for the entire day. Complete your daily tasks efficiently with the Precision Touchpad, and get optimal voice communication with the enhanced microphone and speakers.',
+        image: 'acerextensa15.jpg',
+        slug: 'acer-extensa-15',
+        price: '2500.00',
+        quantity: '5',
+        brandId: 3,
+        sales: 1,
+        views: 9,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        categoryId: 2,
+        statusId: 1,
+        unitId: 1
     }], {});
   },
-
   down: async (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('Products', [{
-        id: [1, 2, 3, 4, 5, 6]
+        id: [1, 2, 3, 4, 5, 6, 7, 8]
     }])
   }
 };

@@ -22,6 +22,23 @@ exports.list = async (req, res, next) => {
     }
 };
 
+exports.getByUser = async (req, res, next) => {
+    try {
+        let orders = await Order.findAll({
+            where: {
+                userId: req.body.userId
+            },
+            include: {
+                all: true
+            }
+        })
+        res.status(httpStatus.OK)
+        res.json(orders)
+    } catch (error) {
+        next(error);
+    }
+}
+
 exports.create = async (req, res, next) => {
     try {
         let order = await Order.create(req.body);

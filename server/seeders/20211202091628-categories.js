@@ -4,8 +4,8 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Categories', [{
       id: 1,
-      name: 'Смартфоны',
-      desc: 'Смартфоны',
+      name: 'Smartphones',
+      desc: 'Smartphones',
       parent: 0,
       slug: 'smartphones',
       icon: 'smartphone',
@@ -13,8 +13,8 @@ module.exports = {
       updatedAt: new Date(),
     }, {
       id: 2,
-      name: 'Ноутбуки',
-      desc: 'Ноутбуки',
+      name: 'Notebooks',
+      desc: 'Notebooks',
       parent: 0,
       slug: 'notebooks',
       icon: 'laptop',

@@ -8,7 +8,7 @@ router.route('/')
 
 
 router.route('/category/:categoryId')
-    .post(controller.listByCategory);
+    .post(controller.getProductsInCategory);
 
 router.route('/topsales/')
     .get(controller.topSales);

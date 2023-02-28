@@ -18,13 +18,40 @@ module.exports = {
                 type: Sequelize.STRING
             },
             slug: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                allowNull: false
             },
             sales: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                defaultValue: 0
             },
             views: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                defaultValue: 0
+            },
+            price: {
+                type: Sequelize.DECIMAL(12, 2),
+                defaultValue: 0.00
+            },
+            quantity: {
+                type: Sequelize.INTEGER,
+                defaultValue: 0
+            },
+            unitId: {
+                type: Sequelize.INTEGER,
+                defaultValue: 1
+            },
+            statusId: {
+                type: Sequelize.INTEGER,
+                defaultValue: 1
+            },
+            categoryId: {
+                type: Sequelize.INTEGER,
+                allowNull: false
+            },
+            brandId: {
+                type: Sequelize.INTEGER,
+                allowNull: false
             },
             createdAt: {
                 allowNull: false,

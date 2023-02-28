@@ -4,6 +4,10 @@ const unit = require('./unit');
 const status = require('./status');
 const auth = require('./auth');
 const order = require('./order');
+const brand = require('./brand');
+const filter = require('./filter');
+const react = require('./react');
+const user = require('./user');
 
 module.exports = {
     category,
@@ -11,5 +15,9 @@ module.exports = {
     unit,
     status,
     auth,
-    order
+    order,
+    brand,
+    filter,
+    react,
+    user
 };

@@ -3,6 +3,5 @@ module.exports = (sequelize, DataTypes) => {
         name: DataTypes.STRING,
         desc: DataTypes.STRING
     });
-
     return Unit;
 };
