@@ -12,8 +12,8 @@ module.exports = {
             name: {
                 type: Sequelize.STRING
             },
-            desc: {
-                type: Sequelize.TEXT
+            categoryId: {
+                type: Sequelize.INTEGER
             },
             createdAt: {
                 allowNull: false,
