@@ -30,4 +30,19 @@ const decodeHeader = (req, res, next) => {
     return next()
 }
 
-module.exports = {verifyToken, decodeHeader};
+const getUserIdByHeader = (req, res, next) => {
+    let token = req.headers.authorization || req.body.token || req.headers['x-access-token']
+    if (!token) {
+        return next()
+    }
+    if (token.startsWith('Bearer ')) {
+        token = token.slice(7, token.length)
+        if (!token || token === '') return next()
+    }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    if (!decoded) return next()
+    if (decoded) res.userId = decoded.id
+    return next()
+}
+
+module.exports = {verifyToken, decodeHeader, getUserIdByHeader};

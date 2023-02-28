@@ -52,8 +52,9 @@ exports.getProductsInCategory = async (req, res, next) => {
                 [Sequelize.Op.in]: filteredElements
             }
         }
-        
 
+        favoritesCondition = (res.userId) ? { userId: res.userId } : {}
+        
         let products = await Product.findAll({
 			include: [{
                 model: Category,
@@ -80,9 +81,7 @@ exports.getProductsInCategory = async (req, res, next) => {
             }, {
                 model: Favorite,
                 as: 'favorite',
-                where: {
-                    userId: 9
-                },
+                where: favoritesCondition,
                 required: false
             }],
             where: whereCondition,
@@ -109,6 +108,7 @@ exports.list = async (req, res, next) => {
 
 exports.topSales = async (req, res, next) => {
     try {
+        favoritesCondition = (res.userId) ? { userId: res.userId } : {}
         let products = await Product.findAll({
             order: [['sales', 'desc']],
             limit: 4,
@@ -125,7 +125,6 @@ exports.topSales = async (req, res, next) => {
                     model: Filter,
                     as: 'filter'
                 }],
-                // where: productPropertiesCondition
             }, {
                 model: Unit,
                 as: 'unit'
@@ -138,9 +137,7 @@ exports.topSales = async (req, res, next) => {
             }, {
                 model: Favorite,
                 as: 'favorite',
-                where: {
-                    userId: 9
-                },
+                where: favoritesCondition,
                 required: false
             }],
         });
@@ -236,107 +233,3 @@ exports.checkAvailability = async (req, res, next) => {
         next(error);
     }
 }
-
-   // let filterElements = []
-        // let productPropertiesCondition = {}
-        // if (req.body.filters && req.body.filters.length) {
-        //     let filters = req.body.filters
-        //     let filterKeys = Object.keys(filters)
-        //     let propertyFilteredCount = 0
-        //     filterKeys.forEach(filterKey => {
-        //         if (filters[filterKey] && filters[filterKey].length) {
-        //             propertyFilteredCount++
-        //         }
-        //     })
-
-        //     console.log('propertyFilteredCount', propertyFilteredCount)
-
-        //     if (propertyFilteredCount === 1) {
-        //         filterKeys.forEach(filterKey => {
-        //             if (filters[filterKey] && filters[filterKey].length > 1) {
-        //                 let tempMultipleFilterProps = []
-        //                 filters[filterKey].forEach(filterElement => {
-        //                     tempMultipleFilterProps.push({ filterPropertyId:  filterElement})
-        //                 })
-        //                 filterElements.push({ [Sequelize.Op.or]: tempMultipleFilterProps  })
-        //             } else if (filters[filterKey] && filters[filterKey].length === 1) {
-        //                 filterElements.push({ filterPropertyId: filters[filterKey] })
-        //             }
-        //         })
-        //     } else if (propertyFilteredCount > 1) {
-        //         filterKeys.forEach(filterKey => {
-        //             if (filters[filterKey] && filters[filterKey].length > 1) {
-        //                 let tempMultipleFilterProps = []
-        //                 filters[filterKey].forEach(filterElement => {
-        //                     tempMultipleFilterProps.push({ filterPropertyId:  filterElement})
-        //                 })
-        //                 filterElements.push({ [Sequelize.Op.or]: tempMultipleFilterProps  })
-        //             } else if (filters[filterKey] && filters[filterKey].length === 1) {
-        //                 filterElements.push({ filterPropertyId: filters[filterKey] })
-        //             }
-        //         })
-        //         console.log('filterElements', filterElements)
-        //     } else {
-
-        //     }
-        // }
-
-        // if (filterElements) {
-        //     productPropertiesCondition = filterElements
-        // } else {
-        //     productPropertiesCondition = []
-        // }
-
-        // console.log('filterElements', filterElements)
-        // console.log('prop condition: ', productPropertiesCondition)
-
-        // let whereCondition = {
-        //     categoryId: req.params.categoryId
-        // }
-        // if (parseInt(req.body.statusId)) {
-        //     whereCondition.statusId = {
-        //         [Sequelize.Op.ne]: parseInt(req.body.statusId)
-        //     }
-        // }
-        // if (req.body.brandId) {
-        //     whereCondition.brandId = req.body.brandId
-        // }
-        // let products = await Product.findAll({
-        //     include: [{
-        //         model: Category,
-        //         as: 'category'
-        //     }, {
-        //         model: ProductProperty,
-        //         as: 'properties',
-        //         include: [{
-        //             model: FilterProperty,
-        //             as: 'filterProperty'
-        //         }, {
-        //             model: Filter,
-        //             as: 'filter'
-        //         }],
-        //         where: productPropertiesCondition
-        //     }, {
-        //         model: Unit,
-        //         as: 'unit'
-        //     }, {
-        //         model: Review,
-        //         as: 'reviews'
-        //     }, {
-        //         model: Status,
-        //         as: 'status'
-        //     }, {
-        //         model: Favorite,
-        //         as: 'favorite',
-        //         where: {
-        //             userId: 9
-        //         },
-        //         required: false
-        //     }],
-        //     where: whereCondition,
-        //     order: [
-        //         [orderKey, orderValue],
-        //     ],
-        // });
-        // res.status(httpStatus.OK);
-        // res.json(products);
