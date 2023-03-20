@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "admin",
-    "password": "igor199304",
+    "username": "",
+    "password": "",
     "database": "marketplace",
     "host": "127.0.0.1",
     "port": 5432,
