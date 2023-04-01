@@ -5,8 +5,6 @@ const cookieParser = require('cookie-parser')
 const routes = require('./server/routes');
 const path = require('path');
 const cors = require('cors');
-const dotenv = require('dotenv')
-dotenv.config()
 const app = express();
 app.use(cors())
 app.use(logger('dev'));
